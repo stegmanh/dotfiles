@@ -3,38 +3,56 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKepress: true
 URxvt*geometry: 112x22  
-URxvt*font: xft:Hack
-URxvt.letterSpace: -2
+URxvt*font: xft:Hack:size=10
+URxvt.letterSpace: -1
 URxvt*urlLauncher: firefox  
 URxvt*scrollBar: false
-URxvt*scrollBar_right: true
+!URxvt*scrollBar_right: true
 URxvt*scrollColor: #000000
 
-! --- XRES SRC
-*foreground:    #ebdbb2
-*background:    #282828
+! Xresource colors
+! special
+*.foreground:   #d3d0c8
+*.background:   #2d2d2d
+*.cursorColor:  #d3d0c8
 
-!black
-*color0:    #1d2021
-*color8:    #665c54
-!red
-*color1:    #cc241d
-*color9:    #fb4934
-!green
-*color2:    #98971a
-*color10:   #b8bb26
-!yellow
-*color3:    #d79921
-*color11:   #fabd2f
-!blue
-*color4:    #458588
-*color12:   #83a598
-!magenta
-*color5:    #b16286
-*color13:   #d3869b
-!cyan
-*color6:    #689d6a
-*color14:   #8ec07c
-!white
-*color7:    #dbae93
-*color15:   #fbf1c7
+! black
+*.color0:       #2d2d2d
+*.color8:       #747369
+
+! red
+*.color1:       #f2777a
+*.color9:       #f2777a
+
+! green
+*.color2:       #99cc99
+*.color10:      #99cc99
+
+! yellow
+*.color3:       #ffcc66
+*.color11:      #ffcc66
+
+! blue
+*.color4:       #6699cc
+*.color12:      #6699cc
+
+! magenta
+*.color5:       #cc99cc
+*.color13:      #cc99cc
+
+! cyan
+*.color6:       #66cccc
+*.color14:      #66cccc
+
+! white
+*.color7:       #d3d0c8
+*.color15:      #f2f0ec
+
+! --- Display Stuff
+Xft.dpi: 192
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rbga: rgb

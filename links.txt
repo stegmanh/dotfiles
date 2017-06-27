@@ -35,3 +35,6 @@ Links to home directory
 Random stuff that was in .zfunctions to get 'PURE PROMPT' to work
 async -> /home/holden/.nvm/versions/node/v8.1.0/lib/node_modules/pure-prompt/async.zsh
 prompt_pure_setup -> /home/holden/.nvm/versions/node/v8.1.0/lib/node_modules/pure-prompt/pure.zsh
+
+desktop background
+imgur - q45C9ES.jpg
