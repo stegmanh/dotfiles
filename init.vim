@@ -54,6 +54,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
 Plug 'neomake/neomake'
 Plug 'tpope/tpope-vim-abolish'
+Plug 'leafgarland/typescript-vim'
 
 " Colorz
 Plug 'morhetz/gruvbox'
