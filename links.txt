@@ -38,3 +38,12 @@ prompt_pure_setup -> /home/holden/.nvm/versions/node/v8.1.0/lib/node_modules/pur
 
 desktop background
 imgur - q45C9ES.jpg
+
+WEBPACK - 
+increase your max watchers (webpack docs, or arch wiki)
+
+Typescript/Vim
+Setcopy  (should be set in vimrc so not an issue)
+UpdateRemotePlugins after installing stuff, ran into issue with vim typescript
+
+xf86-input-libinput - solved (90% at least) my input issues with trackpad

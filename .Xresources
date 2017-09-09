@@ -3,12 +3,13 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKepress: true
 URxvt*geometry: 112x22  
-URxvt*font: xft:Hack:size=10
+URxvt*font: xft:Hack:size=14
 URxvt.letterSpace: -1
 URxvt*urlLauncher: firefox  
 URxvt*scrollBar: false
-!URxvt*scrollBar_right: true
-URxvt*scrollColor: #000000
+URxvt*256-color: true
+URxvt*scrollColor: #000000 
+URxvt*saveLines: 20000
 
 ! Xresource colors
 ! special
@@ -48,11 +49,17 @@ URxvt*scrollColor: #000000
 *.color7:       #d3d0c8
 *.color15:      #f2f0ec
 
+rofi.color-enabled: true
+rofi.color-window: #273238, #273238, #1e2529
+rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
+rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
+rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
+
 ! --- Display Stuff
-Xft.dpi: 192
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rbga: rgb
+! Xft.dpi: 192
+! Xft.autohint: 0
+! Xft.lcdfilter: lcddefault
+! Xft.hintstyle: hintfull
+! Xft.hinting: 1
+! Xft.antialias: 1
+! Xft.rbga: rgb

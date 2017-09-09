@@ -131,6 +131,7 @@ bindsym Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed exit. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #bindsym Mod1+Shift+e exit
+bindsym Mod1+Shift+o exec "i3lock -c 1A237E"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -167,14 +168,14 @@ bindsym Mod1+r mode "resize"
 # i3 suggests that this is set but I dont noticed any difference
 # for_window [class="^.*"] border pixel 0
 
-gaps outer 8
-gaps inner 20
+gaps outer 5
+gaps inner 15
 
 new_window pixel 3
 new_float pixel 3
 
 # Rafi
-bindsym Mod4+space exec rofi -show run -font "ubuntu mono 18" -fg "#505050" -bg "#000000" -hlfg "#ffb964" -hlbg "#000000" -width 30 -lines 5
+bindsym Mod4+space exec rofi -show run -font "ubuntu mono 18" -width 30 -lines 5
 
 # Feh
 exec --no-startup-id feh --bg-scale /home/holden/Pictures/q45C9ES.jpg &

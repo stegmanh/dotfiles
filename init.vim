@@ -5,8 +5,7 @@ set showmatch
 set visualbell
 set nowrap
 
-syntax on
-
+syntax on 
 set hlsearch 
 set smartcase
 set ignorecase
@@ -25,6 +24,9 @@ set undolevels=1000
 set backspace=indent,eol,start
 
 set relativenumber 
+
+" Ensure overwrite copy
+set backupcopy=yes
 
 " for NERD Commenter
 filetype plugin on
@@ -55,6 +57,10 @@ Plug 'mxw/vim-jsx'
 Plug 'neomake/neomake'
 Plug 'tpope/tpope-vim-abolish'
 Plug 'leafgarland/typescript-vim'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'mhartington/nvim-typescript'
+Plug 'elmcast/elm-vim'
+Plug 'fatih/vim-go'
 
 " Colorz
 Plug 'morhetz/gruvbox'
@@ -62,6 +68,7 @@ Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'sebastianmarkow/deoplete-rust'
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 " Neomake settings
 autocmd! BufWritePost * Neomake
@@ -77,9 +84,15 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 set completeopt-=preview
 
 " rust deoplete rust
-let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='~/code/rust/rust/src'
+let g:deoplete#sources#rust#racer_binary='/home/holden/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/holden/code/source/rust/src'
 let g:deoplete#sources#rust#disable_keymap=1
+
+" Yuck
+let g:rust_recommended_style = 0
+
+" go deoplete stuff
+let g:deoplete#sources#go#gocode_binary='/home/holden/go/bin/gocode'
 
 " JS/Tern deoplete things
 let g:tern_request_timeout = 1
@@ -90,6 +103,13 @@ let g:tern#filetypes = ['js', 'jsx', 'javascript.jsx']
 
 " Enable JSX in JS files
 let g:jsx_ext_required = 0
+
+autocmd FileType javascript noremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json noremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
 
 call plug#end()
 
