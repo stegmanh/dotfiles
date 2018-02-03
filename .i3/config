@@ -131,7 +131,7 @@ bindsym Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed exit. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #bindsym Mod1+Shift+e exit
-bindsym Mod1+Shift+o exec "i3lock -c 1A237E"
+bindsym Mod1+Shift+o exec "i3lock -c 6699cc"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -159,8 +159,12 @@ mode "resize" {
 
 focus_follows_mouse no
 
-client.focused_inactive #a5c261 #a5c261 #a5c261 #a5c261
-client.focused #ee5c67 #ee5c67 #ee5c67 #ee5c67
+#client.focused_inactive #a5c261 #a5c261 #a5c261 #a5c261
+#client.focused #ee5c67 #ee5c67 #ee5c67 #ee5c67
+#client.unfocused #707070 #707070 #707070 #707070
+
+client.focused_inactive #99cc99 #99cc99 #99cc99 #99cc99
+client.focused #6699cc #6699cc #6699cc #6699cc
 client.unfocused #707070 #707070 #707070 #707070
 
 bindsym Mod1+r mode "resize"
@@ -179,8 +183,5 @@ bindsym Mod4+space exec rofi -show run -font "ubuntu mono 18" -width 30 -lines 5
 
 # Feh
 exec --no-startup-id feh --bg-scale /home/holden/Pictures/q45C9ES.jpg &
-
-# Another monitor
-# exec_always --no-startup-id bash 'xrandr --output DP1 --right-of eDP1 --mode 3840x2160'
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

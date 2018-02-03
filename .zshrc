@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/holden/.oh-my-zsh
+export ZSH=/home/holden/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -63,6 +63,9 @@ export PATH=$HOME/.rbenv/bin:$PATH
 
 export LANG=en_US.UTF-8
 
+# fzf
+source $HOME/.fzf.zsh
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -71,6 +74,8 @@ export LANG=en_US.UTF-8
 
 # Aliases
 alias vim="nvim"
+alias gpodr="git pull origin develop --rebase"
+alias fix-screen="xrandr --output DP-1 --right-of eDP-1 --mode 3840x2160 && xrandr --output DP-1 --right-of eDP-1 --mode 2560x1440 && xset r rate 250 30"
 
 # Node Version Manager stuff
 export NVM_DIR="$HOME/.nvm"

@@ -1,7 +1,7 @@
 ! urxvt
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
-URxvt*scrollTtyKepress: true
+URxvt*scrollTtyKeypress: true
 URxvt*geometry: 112x22  
 URxvt*font: xft:Hack:size=14
 URxvt.letterSpace: -1

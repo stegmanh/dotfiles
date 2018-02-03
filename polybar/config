@@ -19,7 +19,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
 width = 100%
 height = 37
 offset-x = 1%
@@ -45,9 +45,9 @@ module-margin-right = 1
 font-0 = hack:size=12;
 font-1 = FontAwesome:size=10;0
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center = date
-modules-right = volume memory cpu wlan eth battery temperature powermenu
+modules-right = volume memory cpu wlan battery temperature powermenu
 
 
 tray-position = right
@@ -101,7 +101,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background}
-label-focused-underline= #a5c261
+label-focused-underline= #99cc99
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -178,7 +178,7 @@ type = internal/cpu
 interval = 2
 format-prefix = "CPU: "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+#format-underline = #f2777a
 label = %percentage%%
 
 [module/memory]
@@ -186,7 +186,7 @@ type = internal/memory
 interval = 2
 format-prefix = "RAM: "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+#format-underline = #66cccc
 label = %percentage_used%%
 
 [module/wlan]
@@ -195,7 +195,7 @@ interface = wlp58s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+#format-connected-underline = #cc99cc
 label-connected = %essid%
 
 format-disconnected =
@@ -216,22 +216,6 @@ ramp-signal-3 = 4
 ramp-signal-4 = 5
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
-type = internal/network
-interface = ens9
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
 [module/date]
 type = internal/date
 interval = 5
@@ -249,7 +233,7 @@ time-alt = %H:%M:%S
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = 
@@ -283,14 +267,14 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+#format-charging-underline = #ffb52a
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+#format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+#format-full-underline = ${self.format-charging-underline}
 
 label-full =  Charged
 
@@ -315,9 +299,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+#format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+#format-warn-underline = ${self.format-underline}
 
 label = %temperature%
 label-warn = %temperature%

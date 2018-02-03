@@ -9,15 +9,7 @@ xset +fp /usr/share/fonts/misc
 
 # merge in defaults and keymaps
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -25,15 +17,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -52,6 +36,3 @@ fi
 xset r rate 250 30
 
 exec i3
-
-
-twm &

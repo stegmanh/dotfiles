@@ -1,11 +1,11 @@
+syntax on 
+
 set number  
 set showbreak=+++   
 set textwidth=100  
 set showmatch  
 set visualbell
-set nowrap
-
-syntax on 
+set nowrap 
 set hlsearch 
 set smartcase
 set ignorecase
@@ -41,10 +41,8 @@ filetype plugin on
 inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
 
 " Plug
-call plug#begin('~/.config/nvim/plugged')
-
+call plug#begin('~/.config/nvim/plugged') 
 Plug 'scrooloose/nerdcommenter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript'
@@ -59,8 +57,12 @@ Plug 'tpope/tpope-vim-abolish'
 Plug 'leafgarland/typescript-vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mhartington/nvim-typescript'
-Plug 'elmcast/elm-vim'
-Plug 'fatih/vim-go'
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
 
 " Colorz
 Plug 'morhetz/gruvbox'
@@ -68,7 +70,6 @@ Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-go', { 'do': 'make' }
 
 " Neomake settings
 autocmd! BufWritePost * Neomake
@@ -83,16 +84,13 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 " Disable the preview window on tab complete
 set completeopt-=preview
 
-" rust deoplete rust
+"" rust deoplete rust
 let g:deoplete#sources#rust#racer_binary='/home/holden/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/holden/code/source/rust/src'
+let g:deoplete#sources#rust#rust_source_path='/home/holden/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:deoplete#sources#rust#disable_keymap=1
 
 " Yuck
 let g:rust_recommended_style = 0
-
-" go deoplete stuff
-let g:deoplete#sources#go#gocode_binary='/home/holden/go/bin/gocode'
 
 " JS/Tern deoplete things
 let g:tern_request_timeout = 1
@@ -103,6 +101,29 @@ let g:tern#filetypes = ['js', 'jsx', 'javascript.jsx']
 
 " Enable JSX in JS files
 let g:jsx_ext_required = 0
+
+" Close tag stuff
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" Dont close everything
+let delimitMate_matchpairs = "(:),[:],{:}"
+
+" Fzf options
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-i': 'vsplit' }
+ " Fzf ctrl p replacement
+nnoremap <silent> <C-p> :FZF -m<cr>
+
+" Haskell options
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 autocmd FileType javascript noremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
