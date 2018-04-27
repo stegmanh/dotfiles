@@ -3,7 +3,6 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/holden/.oh-my-zsh
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -56,9 +55,6 @@ source $ZSH/oh-my-zsh.sh
 # Source cargo
 source $HOME/.cargo/env
 
-# rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-
 # User configuration
 
 export LANG=en_US.UTF-8
@@ -75,7 +71,9 @@ source $HOME/.fzf.zsh
 # Aliases
 alias vim="nvim"
 alias gpodr="git pull origin develop --rebase"
-alias fix-screen="xrandr --output DP-1 --right-of eDP-1 --mode 3840x2160 && xrandr --output DP-1 --right-of eDP-1 --mode 2560x1440 && xset r rate 250 30"
+alias fix-screen="xrandr --output DP-1 --right-of eDP-1 --mode 3840x2160 && xrandr --output DP-1 --right-of eDP-1 --mode 2560x1440 && xset r rate 250 30 && ~/./dotfiles/polybar/launch.sh"
+alias kcomplete="source <(kubectl completion zsh)"
+alias k6="kubectl"
 
 # Node Version Manager stuff
 export NVM_DIR="$HOME/.nvm"
@@ -84,3 +82,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Editor
 export EDITOR="nvim"
+
+# Golang ffs
+export GOPATH="$HOME/go"

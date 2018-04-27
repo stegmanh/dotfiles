@@ -52,7 +52,6 @@ Plug 'othree/yajs.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'
 Plug 'mxw/vim-jsx'
-Plug 'neomake/neomake'
 Plug 'tpope/tpope-vim-abolish'
 Plug 'leafgarland/typescript-vim'
 Plug 'maksimr/vim-jsbeautify'
@@ -61,6 +60,11 @@ Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'ElmCast/elm-vim'
+Plug 'w0rp/ale'
+
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 
@@ -70,10 +74,6 @@ Plug 'morhetz/gruvbox'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'sebastianmarkow/deoplete-rust'
-
-" Neomake settings
-autocmd! BufWritePost * Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
 
 " Start it up
 let g:deoplete#enable_at_startup = 1
@@ -116,6 +116,9 @@ let g:fzf_action = {
  " Fzf ctrl p replacement
 nnoremap <silent> <C-p> :FZF -m<cr>
 
+let g:deoplete#sources#go#gocode_binary = '/home/holden/go/bin/gocode'
+let g:go_fmt_command = "goimports"
+
 " Haskell options
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
@@ -125,12 +128,19 @@ let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
+let g:ale_fixers = {
+  \  'javascript': ['eslint'],
+  \}
+
+let g:ale_linters = { 
+  \ 'javascript': ['eslint']
+  \}
+
 autocmd FileType javascript noremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
-
 
 call plug#end()
 
