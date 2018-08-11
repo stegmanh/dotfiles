@@ -182,6 +182,6 @@ new_float pixel 3
 bindsym Mod4+space exec rofi -show run -font "ubuntu mono 18" -width 30 -lines 5
 
 # Feh
-exec --no-startup-id feh --bg-scale /home/holden/Pictures/q45C9ES.jpg &
+# exec --no-startup-id feh --bg-scale /home/holden/Pictures/q45C9ES.jpg &
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
