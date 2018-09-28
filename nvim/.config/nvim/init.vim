@@ -34,9 +34,6 @@ filetype plugin on
 " Lol
 :imap jk <Esc>
 
-" Auto tab
-inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
-
 " Plug
 call plug#begin('~/.config/nvim/plugged') 
 " -- Code editing --
@@ -57,6 +54,8 @@ Plug 'mattn/emmet-vim'
 " Fzf
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+" handle bracket pairs
+Plug 'jiangmiao/auto-pairs'
 
 " -- Editor appearance --
 " Git
