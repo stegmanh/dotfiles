@@ -22,12 +22,14 @@ A lot of this is for me when setting up a new dev environment
 
 ## Workflow
 - rafi (application launcher)
+- xstow (gnu stow replacement)
 
 ## Misc
 - archey (display the distro logo & sys info)
 
 ## Useful commands
-- `xset r rate [delay] [rate] xset r rate 200 25 in xinitrc // sets key repeat` 
+- `xset r rate [delay] [rate] xset r rate 250 30 in xinitrc // sets key repeat` 
+- `xstow -target [home_dir] [package]`
 
 ## Troubleshooting notes
 - Webpack
