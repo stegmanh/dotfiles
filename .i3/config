@@ -84,8 +84,7 @@ bindsym Mod1+e layout toggle split
 # toggle tiling / floating
 bindsym Mod1+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-bindsym Mod1+space focus mode_toggle
+# change focus between tiling / floating windows bindsym Mod1+space focus mode_toggle
 
 # focus the parent container
 bindsym Mod1+a focus parent
@@ -159,18 +158,11 @@ mode "resize" {
 
 focus_follows_mouse no
 
-#client.focused_inactive #a5c261 #a5c261 #a5c261 #a5c261
-#client.focused #ee5c67 #ee5c67 #ee5c67 #ee5c67
-#client.unfocused #707070 #707070 #707070 #707070
-
 client.focused_inactive #99cc99 #99cc99 #99cc99 #99cc99
 client.focused #6699cc #6699cc #6699cc #6699cc
 client.unfocused #707070 #707070 #707070 #707070
 
 bindsym Mod1+r mode "resize"
-
-# i3 suggests that this is set but I dont noticed any difference
-# for_window [class="^.*"] border pixel 0
 
 gaps outer 5
 gaps inner 15
@@ -182,6 +174,7 @@ new_float pixel 3
 bindsym Mod4+space exec rofi -show run -font "ubuntu mono 18" -width 30 -lines 5
 
 # Feh
-exec --no-startup-id feh --bg-scale /home/holden/Pictures/q45C9ES.jpg &
+exec --no-startup-id feh --bg-scale $HOME/Downloads/planet-64-hamda-almansoori-1920×1080.jpg &
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id dunst

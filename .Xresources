@@ -10,6 +10,7 @@ URxvt*scrollBar: false
 URxvt*256-color: true
 URxvt*scrollColor: #000000 
 URxvt*saveLines: 20000
+URxvt.perl-ext-common: selection-to-clipboard
 
 ! Xresource colors
 ! special
@@ -20,7 +21,6 @@ URxvt*saveLines: 20000
 ! black
 *.color0:       #2d2d2d
 *.color8:       #747369
-
 ! red
 *.color1:       #f2777a
 *.color9:       #f2777a

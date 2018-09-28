@@ -31,47 +31,56 @@ set backupcopy=yes
 " for NERD Commenter
 filetype plugin on
 
-" Other javascript stuff?  filetype plugin indent on
-
 " Lol
 :imap jk <Esc>
-":imap kj <Esc>
 
 " Auto tab
 inoremap {<CR> {<CR>}<Esc>O<BS><Tab>
 
 " Plug
 call plug#begin('~/.config/nvim/plugged') 
+" -- Code editing --
+" Easy file commenting
 Plug 'scrooloose/nerdcommenter'
+" Code tree
 Plug 'scrooloose/nerdtree'
+" Surrounding for parens, quotes etc
 Plug 'tpope/vim-surround'
-Plug 'pangloss/vim-javascript'
+" Auto close braces
 Plug 'raimondi/delimitmate'
-Plug 'airblade/vim-gitgutter'
-Plug 'othree/yajs.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'rust-lang/rust.vim'
-Plug 'mxw/vim-jsx'
+" Smart find/replace (%S) 
 Plug 'tpope/tpope-vim-abolish'
-Plug 'leafgarland/typescript-vim'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'mhartington/nvim-typescript'
+" Auto close html tags
 Plug 'alvan/vim-closetag'
+" Emmet
 Plug 'mattn/emmet-vim'
+" Fzf
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+
+" -- Editor appearance --
+" Git
+Plug 'airblade/vim-gitgutter'
+" Bottom bar
+Plug 'vim-airline/vim-airline'
+
+" -- Languages --
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'ElmCast/elm-vim'
+Plug 'maksimr/vim-jsbeautify'
+
+" -- Auto complete --
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
-
-" Colorz
+" Colors
 Plug 'morhetz/gruvbox'
+Plug 'nightsense/snow'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Auto complete plugins
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'sebastianmarkow/deoplete-rust'
 
@@ -85,12 +94,9 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<Tab>"
 set completeopt-=preview
 
 "" rust deoplete rust
-let g:deoplete#sources#rust#racer_binary='/home/holden/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/holden/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#racer_binary='$HOME/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:deoplete#sources#rust#disable_keymap=1
-
-" Yuck
-let g:rust_recommended_style = 0
 
 " JS/Tern deoplete things
 let g:tern_request_timeout = 1
@@ -116,17 +122,25 @@ let g:fzf_action = {
  " Fzf ctrl p replacement
 nnoremap <silent> <C-p> :FZF -m<cr>
 
-let g:deoplete#sources#go#gocode_binary = '/home/holden/go/bin/gocode'
+" Use Rg instead of Ag
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Go settings
+let g:deoplete#sources#go#gocode_binary = '$GOPATH/bin/gocode'
 let g:go_fmt_command = "goimports"
 
-" Haskell options
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+augroup go
+  autocmd!
+
+  autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+  autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+  autocmd FileType go nmap <Leader>t <Plug>(go-def-tab)
+augroup END
 
 let g:ale_fixers = {
   \  'javascript': ['eslint'],
@@ -145,7 +159,7 @@ autocmd FileType css noremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 call plug#end()
 
 " Gruvbox
-" This HAS to be after plugged :)
+" This _has_ to be after plugged
 set t_Co=256
 let base16colorspace=256
 set background=dark
