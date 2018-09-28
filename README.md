@@ -1,0 +1,47 @@
+# Explanation of Packages
+A lot of this is for me when setting up a new dev environment
+
+## Fonts:
+----
+- ttf-hack (hack font)
+
+## Terminal:
+----
+- urxvt (terminal emulator)
+- i3 (window manager)
+- i3bar/lemonbar/polybar (bars)
+
+## Development
+----
+- nvm (node version manager)
+- rustup (rust manager)
+- go
+- neovim
+  * plug (plugin manager)
+  * python (pip install neovim / pip3 install neovim, or something similar)
+
+## Shell
+----
+- zsh/oh-my-zsh
+
+## Workflow
+----
+- rafi (application launcher)
+
+## Misc
+----
+- archey (display the distro logo & sys info)
+
+## Useful commands
+----
+- `xset r rate [delay] [rate] xset r rate 200 25 in xinitrc // sets key repeat` 
+
+## Troubleshooting notes
+----
+- Webpack
+  * Increase max watchers in
+- Typescript/vo,
+  * setcopy in vimrc (should already be set)
+  * Run `:UpdateRemotePlugins` after installing 
+- Input issues
+  * f86-input-libinput (Solves some input issues)
