@@ -39,3 +39,5 @@ A lot of this is for me when setting up a new dev environment
   * Run `:UpdateRemotePlugins` after installing 
 - Input issues
   * f86-input-libinput (Solves some input issues)
+- Focus IntelliJ with i3
+  * If trying to focus intellij with I3 and you have to click the cursor to input. Restart i3 in place (with ctrl + shift + r) to regain functionality 
